@@ -1,8 +1,21 @@
 const Discord = require("discord.js")
+const money = "<:money:973150784025923654>"
+const x = "<:xx:973150783870746634>"
+const check = "<:check:973151719171190784>"
+const bitcoin = "<:Bitcoin:971362942924783616>"
 
 module.exports.run = async (bot, message, args) => {
   let developers = bot.devs
-  if(!developers.includes(message.author.id)) return message.channel.send(`🛑 **ACCESS DENIED! THIS IS A DEVELOPER ONLY COMMAND. 🛑**`)
+        let embed = new Discord.RichEmbed()
+
+    .setColor("RED")
+  .setAuthor('CzvVesti | Eval', 'https://i.imgur.com/iSbCziO.jpg' )
+.setFooter(message.author.tag + " " , message.author.displayAvatarURL)
+.setTimestamp()
+  .setThumbnail (message.author.displayAvatarURL)
+  .addField(x + "» Nemate dozvolu da koristite ovu komandu", "Ovu komandu mogu koristiti samo Developeri Bota") 
+        
+  if(!developers.includes(message.author.id)) return message.channel.send(embed)
   function clean(text) {
   if (typeof(text) === "string")
     return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
@@ -28,6 +41,6 @@ module.exports.help = {
   aliases: [],
   description: "Evals a code.",
   perm: "ADMINISTRATOR",
-  role: "GH Bot Developer",
-  group:"Developer"
+  role: "",
+  group:""
 }
